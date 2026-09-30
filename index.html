@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E.V.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="rail left" aria-label="E.V. navigation">
+      <div class="brand">
+        <div class="wordmark">E.V.</div>
+        <div class="brand-sub">Personal intelligence</div>
+      </div>
+
+      <div class="scope" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <defs>
+            <radialGradient id="scopeglow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#7ee7f7" stop-opacity="0.35"/>
+              <stop offset="70%" stop-color="#85dbe1" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="sweepfill" x1="60" y1="60" x2="60" y2="12" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#7ee7f7" stop-opacity="0.0"/>
+              <stop offset="100%" stop-color="#7ee7f7" stop-opacity="0.55"/>
+            </linearGradient>
+          </defs>
+          <circle cx="60" cy="60" r="58" fill="url(#scopeglow)"/>
+          <circle cx="60" cy="60" r="54" fill="none" stroke="#85dbe1" stroke-width="1" opacity="0.45"/>
+          <circle cx="60" cy="60" r="46" fill="none" stroke="#85dbe1" stroke-width="3" stroke-dasharray="1.5 10.2" stroke-linecap="round" opacity="0.7"/>
+          <circle cx="60" cy="60" r="34" fill="none" stroke="#85dbe1" stroke-width="1" opacity="0.28"/>
+          <circle cx="60" cy="60" r="18" fill="none" stroke="#9aebf1" stroke-width="1" opacity="0.55"/>
+          <path d="M60 10v8M60 102v8M10 60h8M102 60h8" stroke="#85dbe1" stroke-width="1" opacity="0.65"/>
+          <g class="sweep">
+            <path d="M60 60 L60 16 A44 44 0 0 1 96 40 Z" fill="url(#sweepfill)"/>
+          </g>
+          <circle cx="60" cy="60" r="3.2" fill="#e9fdff"/>
+        </svg>
+      </div>
+      <div class="standby" id="standby">Standby</div>
+
+      <div class="rail-label">Conversations <em>Sample</em></div>
+      <nav class="folders" id="folders" aria-label="Sample chat folders">
+        <button type="button" class="folder on" data-folder="geral"><i></i>geral</button>
+        <button type="button" class="folder" data-folder="personal"><i></i>personal</button>
+        <button type="button" class="folder" data-folder="university"><i></i>university</button>
+        <button type="button" class="folder" data-folder="work"><i></i>work</button>
+      </nav>
+      <button type="button" class="folder ghost" id="new-folder">+ new folder</button>
+
+      <button type="button" class="bolt" id="bolt" title="Visual only. Does not control this computer." aria-label="Standby mark. Visual only.">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 L4 14h7l-1 8 10-14h-7l0-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </button>
+    </aside>
+
+    <header class="topbar">
+      <button type="button" class="icon" title="Visual only" aria-label="Sidebar mark">
+        <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 5v14" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+      <button type="button" class="icon" title="Visual only" aria-label="Back mark">
+        <svg viewBox="0 0 24 24"><path d="M14 6 L8 12l6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <span>Main</span>
+        <span class="sep">/</span>
+        <span>Chat</span>
+        <span class="sep">/</span>
+        <span class="home">Home</span>
+        <span class="sep">/</span>
+        <span>Productivity</span>
+      </nav>
+      <div class="pill" id="chat-pill">Chat geral</div>
+      <div class="grow"></div>
+      <div class="clock" aria-live="polite">
+        <b id="clock-time">--:--</b>
+        <span id="clock-date">America/Phoenix · PT</span>
+      </div>
+      <button type="button" class="icon" id="search-btn" title="Focuses the local ask field. No search service." aria-label="Focus ask field">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 16l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <button type="button" class="icon" id="mic-top" title="Microphone stays off." aria-label="Microphone off">
+        <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <button type="button" class="icon" id="sound-btn" title="Sound stays off. No audio." aria-pressed="false" aria-label="Sound off">
+        <svg viewBox="0 0 24 24"><path d="M4 10h3l5-4v12l-5-4H4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M16 9a4 4 0 0 1 0 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <button type="button" class="icon" title="Visual only. Does not control the window." aria-label="Window mark">
+        <svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+      <button type="button" class="icon" title="Visual only. Does not control the window." aria-label="Expand mark">
+        <svg viewBox="0 0 24 24"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+
+    <main class="main">
+      <section class="hero cardish">
+        <div class="hero-top">
+          <div class="orb" aria-hidden="true"></div>
+          <div class="hero-copy">
+            <h1 id="greeting">Hello, Harrison.</h1>
+            <p id="status-line">Reading the Phoenix clock.</p>
+          </div>
+          <button type="button" class="customize" id="customize">Customize</button>
+        </div>
+
+        <div class="composer">
+          <button type="button" class="chip" data-log="List modules">List modules</button>
+          <button type="button" class="chip" data-log="What is live?">What is live?</button>
+          <form id="ask-form" autocomplete="off">
+            <input id="ask" type="text" placeholder="Ask E.V..." aria-label="Ask E.V." spellcheck="false">
+            <button type="button" class="mic" id="mic-ask" title="Microphone stays off." aria-label="Microphone off">
+              <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </button>
+            <button type="submit" class="send">Send</button>
+          </form>
+        </div>
+
+        <div class="alert" role="note">
+          <span class="flag">SAMPLE</span>
+          Placeholder notice. No bills, meetings, or alerts are loaded.
+        </div>
+
+        <div class="strip" aria-label="Sample status strip">
+          <span class="online"><i class="dot" aria-hidden="true"></i>System online <b>SAMPLE</b></span>
+          <span>AI <b>auto · SAMPLE</b></span>
+          <span>Model <b>local · SAMPLE</b></span>
+          <span>Uptime <b>— · SAMPLE</b></span>
+          <span>Memories <b>— · SAMPLE</b></span>
+        </div>
+
+        <div class="prompts">
+          <button type="button" class="prompt" data-log="Day summary">Day summary</button>
+          <button type="button" class="prompt" data-log="What do I have today?">What do I have today?</button>
+          <button type="button" class="prompt" data-log="This month's expenses">This month's expenses</button>
+          <button type="button" class="prompt" data-log="Weather">Weather</button>
+        </div>
+
+        <div class="log">
+          <span class="log-k">Local log</span>
+          <ul id="log-list"><li class="placeholder">No messages yet. Nothing is sent.</li></ul>
+        </div>
+      </section>
+
+      <section class="cards" aria-label="Sample cards">
+        <article class="card">
+          <header class="hd">
+            <svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Today's tasks
+            <em>SAMPLE</em>
+          </header>
+          <ul class="items" id="task-list"></ul>
+          <p class="empty" id="task-empty">No live tasks yet. SAMPLE.</p>
+          <form class="add" id="task-form" autocomplete="off">
+            <input id="task-input" type="text" placeholder="New task..." aria-label="New sample task">
+            <button type="submit" aria-label="Add sample task">+</button>
+          </form>
+        </article>
+
+        <article class="card">
+          <header class="hd">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Today's habits
+            <em>SAMPLE</em>
+          </header>
+          <div class="habit-row">
+            <div class="donut" style="--p:0" aria-hidden="true"><div><b>0%</b><small>0/0</small></div></div>
+            <p class="empty">No live habits yet. SAMPLE.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <header class="hd">
+            <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            Health &amp; water
+            <em>SAMPLE</em>
+          </header>
+          <div class="habit-row">
+            <div class="heart" aria-hidden="true">—</div>
+            <p class="empty">No live readings. SAMPLE.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <header class="hd">
+            <svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 0-5 5v1h10v-1a5 5 0 0 0-5-5zM8 13v1a4 4 0 0 0 8 0v-1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Reminders
+            <em>SAMPLE</em>
+          </header>
+          <ul class="items" id="rem-list"></ul>
+          <p class="empty" id="rem-empty">No live reminders. SAMPLE.</p>
+          <form class="add" id="rem-form" autocomplete="off">
+            <input id="rem-input" type="text" placeholder="+ new reminder" aria-label="New sample reminder">
+            <button type="submit" aria-label="Add sample reminder">+</button>
+          </form>
+        </article>
+
+        <article class="card">
+          <header class="hd">
+            <svg viewBox="0 0 24 24"><path d="M7 16a4 4 0 1 1 .6-8 5 5 0 0 1 9.6 1.2A3.5 3.5 0 1 1 17 16H7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            Weather now
+            <em>SAMPLE</em>
+          </header>
+          <div class="wx">
+            <div class="wx-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 16a4 4 0 1 1 .6-8 5 5 0 0 1 9.6 1.2A3.5 3.5 0 1 1 17 16H7z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+            <div>
+              <div class="wx-city">Phoenix</div>
+              <p class="empty">No live forecast. SAMPLE.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <header class="hd">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Quick actions
+            <em>SAMPLE</em>
+          </header>
+          <div class="qa">
+            <button type="button" data-log="Quick action · Day plan · SAMPLE">Day plan</button>
+            <button type="button" data-log="Quick action · Pending · SAMPLE">Pending</button>
+            <button type="button" data-log="Quick action · News · SAMPLE">News</button>
+            <button type="button" data-log="Quick action · Weather · SAMPLE">Weather</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="rail right" aria-label="Sample system panel">
+      <div class="rail-label">System <em>Sample</em></div>
+      <ul class="sys" id="sys-list">
+        <li><svg viewBox="0 0 24 24"><path d="M8 6h11M8 12h11M8 18h11M4 6h.01M4 12h.01M4 18h.01" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Tasks</span><b id="count-tasks">0</b></li>
+        <li><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 7 3 7 3 7H3s3 0 3-7M10 20a2 2 0 0 0 4 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Reminders</span><b id="count-rems">0</b></li>
+        <li><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.7"/></svg><span>Expenses</span><b>—</b></li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 8v4M12 16h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Memories</span><b>—</b></li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 19V6l8-3 8 3v13l-8 3-8-3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Base</span><b>—</b></li>
+      </ul>
+
+      <div class="rail-label">Quick actions <em>Sample</em></div>
+      <div class="qa side">
+        <button type="button" data-log="Quick action · Day plan · SAMPLE">Day plan</button>
+        <button type="button" data-log="Quick action · Web search · SAMPLE">Web search</button>
+        <button type="button" data-log="Quick action · News · SAMPLE">News</button>
+        <button type="button" data-log="Quick action · Weather · SAMPLE">Weather</button>
+        <button type="button" data-log="Quick action · Report · SAMPLE">Report</button>
+        <button type="button" data-log="Quick action · Week · SAMPLE">Week</button>
+      </div>
+
+      <div class="rail-label">Pages <em>Sample</em></div>
+      <ul class="mods">
+        <li><span>Vesper</span><small>inbox</small><em>SAMPLE</em></li>
+        <li><span>Ridge</span><small>train</small><em>SAMPLE</em></li>
+        <li><span>Signal</span><small>news</small><em>SAMPLE</em></li>
+        <li><span>Ledger</span><small>money</small><em>SAMPLE</em></li>
+        <li><span>Scout</span><small>—</small><em>SAMPLE</em></li>
+        <li><span>Aerith</span><small>—</small><em>SAMPLE</em></li>
+        <li><span>Forge</span><small>—</small><em>SAMPLE</em></li>
+        <li><span>Claire</span><small>staff</small><em>SAMPLE</em></li>
+      </ul>
+
+      <div class="rail-label">AI provider <em>Sample</em></div>
+      <select id="provider" aria-label="Sample AI provider. No request is sent.">
+        <option value="auto">auto</option>
+        <option value="local">local</option>
+      </select>
+      <p class="fine">No request is sent. SAMPLE.</p>
+      <ul class="links">
+        <li>E.V. voice · SAMPLE</li>
+        <li>API connectors · SAMPLE</li>
+        <li>API keys · none stored · SAMPLE</li>
+      </ul>
+    </aside>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
