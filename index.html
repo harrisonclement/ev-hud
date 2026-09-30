@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050910">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>E.V.</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -55,6 +58,7 @@
     </aside>
 
     <header class="topbar">
+      <div class="phone-mark">E.V.</div>
       <button type="button" class="icon" title="Visual only" aria-label="Sidebar mark">
         <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 5v14" stroke="currentColor" stroke-width="1.6"/></svg>
       </button>
@@ -143,7 +147,7 @@
       </section>
 
       <section class="cards" aria-label="Sample cards">
-        <article class="card">
+        <article class="card card-tasks">
           <header class="hd">
             <svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             Today's tasks
@@ -157,7 +161,7 @@
           </form>
         </article>
 
-        <article class="card">
+        <article class="card card-habits">
           <header class="hd">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             Today's habits
@@ -169,7 +173,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card card-health">
           <header class="hd">
             <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
             Health &amp; water
@@ -181,7 +185,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card card-rems">
           <header class="hd">
             <svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 0-5 5v1h10v-1a5 5 0 0 0-5-5zM8 13v1a4 4 0 0 0 8 0v-1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             Reminders
@@ -195,7 +199,7 @@
           </form>
         </article>
 
-        <article class="card">
+        <article class="card card-wx">
           <header class="hd">
             <svg viewBox="0 0 24 24"><path d="M7 16a4 4 0 1 1 .6-8 5 5 0 0 1 9.6 1.2A3.5 3.5 0 1 1 17 16H7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
             Weather now
@@ -212,7 +216,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card card-qa">
           <header class="hd">
             <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Quick actions
@@ -224,6 +228,22 @@
             <button type="button" data-log="Quick action · News · SAMPLE">News</button>
             <button type="button" data-log="Quick action · Weather · SAMPLE">Weather</button>
           </div>
+        </article>
+        <article class="card agents-phone">
+          <header class="hd">
+            Agents
+            <em>SAMPLE</em>
+          </header>
+          <ul class="mods">
+            <li><span>Vesper</span><small>inbox</small><em>SAMPLE</em></li>
+            <li><span>Ridge</span><small>train</small><em>SAMPLE</em></li>
+            <li><span>Signal</span><small>news</small><em>SAMPLE</em></li>
+            <li><span>Ledger</span><small>money</small><em>SAMPLE</em></li>
+            <li><span>Scout</span><small>—</small><em>SAMPLE</em></li>
+            <li><span>Aerith</span><small>—</small><em>SAMPLE</em></li>
+            <li><span>Forge</span><small>—</small><em>SAMPLE</em></li>
+            <li><span>Claire</span><small>staff</small><em>SAMPLE</em></li>
+          </ul>
         </article>
       </section>
     </main>
